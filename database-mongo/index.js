@@ -14,7 +14,9 @@ db.once('open', function() {
 var userSchema = mongoose.Schema({
   userName:String,
   age: Number,
-  country : String 
+  country : String ,
+  phone: Number,
+  city: String
 });
 
 var User = mongoose.model('User', userSchema);

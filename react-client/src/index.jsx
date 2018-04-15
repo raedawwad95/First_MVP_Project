@@ -11,14 +11,17 @@ class App extends React.Component {
     }
   }
 
-  add( userName , age ,country ) {
+  add( userName , age ,country,phone,city,email ) {
+    if(userName && age && country ){
     $.ajax({
       type: 'POST',
       url: '/users',
       data : {
       userName : userName ,
       age: age , 
-      country : country
+      country : country,
+      phone:phone,
+      city:city
      },
 
       success: (data) => {
@@ -28,6 +31,8 @@ class App extends React.Component {
         console.log('err', err);
       }
     });
+
+  }
   }
     showData(){
       $.ajax({
@@ -47,9 +52,9 @@ class App extends React.Component {
 
   render () {
     return (<div>
-      <h1>Users Data</h1>
+      <h1 id ='text'>Users Data</h1>
       <UserList users={this.state.users}/>
-      <AddUser users={this.state.users} onAdd={this.add.bind(this)} onShow={this.showData.bind(this)}/>
+      <AddUser  users={this.state.users} onAdd={this.add.bind(this)} onShow={this.showData.bind(this)}/>
     </div>)
   }
 }

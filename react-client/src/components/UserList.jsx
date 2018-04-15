@@ -3,8 +3,8 @@ import React from 'react';
 
 const UserList = (props) => (
   <div>
-    <h4> User Component </h4>
-    There are { props.users.length } users.
+    <h3 id ='text'> Add Users </h3>
+   
    
   </div>
 )
